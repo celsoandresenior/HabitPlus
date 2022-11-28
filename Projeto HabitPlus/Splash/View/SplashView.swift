@@ -14,7 +14,7 @@ struct SplashView: View {
     var body: some View {
         switch state {
         case .loading:
-                
+
             // 1 forma
             //LoadingView()
             
@@ -22,7 +22,7 @@ struct SplashView: View {
             //self.loading
 
             // 3. forma
-            self.loadingView(logo: "aot")
+            self.loadingView(error: "aot")
             
         case .goToSignInScreen:
             Text("tela de sigIn...")
@@ -68,16 +68,15 @@ extension SplashView {
 
 extension SplashView {
     // suporta parametros.
-    func loadingView(logo: String) -> some View {
+    func loadingView(error: String? = nil) -> some View {
         ZStack {
-            Image(logo)
+            Image("aot")
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(20)
                 .background(Color.black)
                 .ignoresSafeArea()
-                
         }
     }
 }
@@ -85,5 +84,6 @@ extension SplashView {
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         SplashView(state: .loading)
+        SplashView(state: .error("problema no servidor!"))
     }
 }
