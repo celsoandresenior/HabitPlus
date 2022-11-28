@@ -14,12 +14,13 @@ struct SplashView: View {
     var body: some View {
         switch state {
         case .loading:
-            // 2. forma
-            //self.loading
-            
+                
             // 1 forma
             //LoadingView()
             
+            // 2. forma
+            //self.loading
+
             // 3. forma
             self.loadingView(logo: "aot")
             
