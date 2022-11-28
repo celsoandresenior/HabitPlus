@@ -10,6 +10,7 @@ import SwiftUI
 struct SplashView: View {
     
     @State var state: SplashViewUIState = .loading
+    @State var showAlert: Bool = false
     
     var body: some View {
         switch state {
@@ -77,6 +78,16 @@ extension SplashView {
                 .padding(20)
                 .background(Color.black)
                 .ignoresSafeArea()
+
+            if let error = error {
+                Text("").alert(isPresented: .constant(true)) {
+                    Alert(title: Text("AOT Error"), message: Text("deu ruim essa merda!!"), dismissButton: .default(Text("OK")) {
+                        // acação quando aperta o botao
+                        print("teste!!!!")
+                        
+                    })
+                }
+            }
         }
     }
 }
